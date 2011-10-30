@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/CannyCad/src"
+    modelPluginID="CannyCad" modelName="Model" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="com.cannycad.cad" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <nestedGenPackages prefix="Domain" basePackage="com.cannycad.cad.model" resource="XML"
+        disposableProviderFactory="true" ecorePackage="model.ecore#//domain">
+      <genDataTypes ecoreDataType="model.ecore#//domain/Vector2D"/>
+      <genClasses image="false" ecoreClass="model.ecore#//domain/DrawingElement">
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//domain/DrawingElement/references"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//domain/DrawingElement/id"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//domain/DrawingElement/label"/>
+        <genOperations ecoreOperation="model.ecore#//domain/DrawingElement/init"/>
+        <genOperations ecoreOperation="model.ecore#//domain/DrawingElement/getParentElement"/>
+        <genOperations ecoreOperation="model.ecore#//domain/DrawingElement/getWorld"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/World">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//domain/World/parentWorld"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//domain/World/worlds"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//domain/World/constructors"/>
+        <genOperations ecoreOperation="model.ecore#//domain/World/init">
+          <genParameters ecoreParameter="model.ecore#//domain/World/init/parent"/>
+        </genOperations>
+        <genOperations ecoreOperation="model.ecore#//domain/World/generateId"/>
+        <genOperations ecoreOperation="model.ecore#//domain/World/getDrawing"/>
+        <genOperations ecoreOperation="model.ecore#//domain/World/getWorld"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/Drawing">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//domain/Drawing/latestId"/>
+        <genOperations ecoreOperation="model.ecore#//domain/Drawing/init"/>
+        <genOperations ecoreOperation="model.ecore#//domain/Drawing/generateId"/>
+        <genOperations ecoreOperation="model.ecore#//domain/Drawing/getDrawing"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/Point">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//domain/Point/position"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//domain/Point/constructor"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//domain/Point/formations"/>
+        <genOperations ecoreOperation="model.ecore#//domain/Point/init">
+          <genParameters ecoreParameter="model.ecore#//domain/Point/init/parent"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/Constructor">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//domain/Constructor/world"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//domain/Constructor/formations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//domain/Constructor/points"/>
+        <genOperations ecoreOperation="model.ecore#//domain/Constructor/init">
+          <genParameters ecoreParameter="model.ecore#//domain/Constructor/init/parent"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/Formation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//domain/Formation/location"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//domain/Formation/constructor"/>
+        <genOperations ecoreOperation="model.ecore#//domain/Formation/init">
+          <genParameters ecoreParameter="model.ecore#//domain/Formation/init/parent"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/Line">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//domain/Line/from"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//domain/Line/to"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/LineP2P">
+        <genOperations ecoreOperation="model.ecore#//domain/LineP2P/getLine"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//domain/SingleConstructor">
+        <genOperations ecoreOperation="model.ecore#//domain/SingleConstructor/getFormation"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
